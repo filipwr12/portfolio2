@@ -19,3 +19,31 @@ dane.forEach(item => {
 
 });
 
+document.getElementById("formularz").addEventListener("submit",function(e){
+    e.preventDefault();
+
+    let valid = true;
+
+    const name = document.getElementById("name").value;
+    const surname = document.getElementById("surname").value;
+    const mail = document.getElementById("email").value;
+
+    document.getElementById("bladimie").innerText = " ";
+    document.getElementById("bladnazwisko").innerText = " ";
+    document.getElementById("bladmail").innerText = " ";
+
+    if(name.length < 2){
+        document.getElementById("bladimie").innerText = "Błąd! Wpisz poprawnie imie";
+        valid = false;
+    }
+
+    if(!mail.includes("@")){
+        document.getElementById("bladmail").innerText = "Błąd! Podaj poprawny adres email";
+        valid = false;
+    }
+    
+    if(valid){
+        alert("Formularz został poprawnie przesłany!");
+    }
+});
+
